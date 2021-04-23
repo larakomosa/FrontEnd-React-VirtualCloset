@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import {Grid, Button} from '@material-ui/core';
 import './Closet.css'
 import blueGrey from '@material-ui/core/colors/blueGrey';
-import { AddItemModal } from './AddItemModal';
+import {AddThisItem} from './AddItemModal';
 
 
 export class Closet extends Component{
@@ -103,13 +103,7 @@ fetch(process.env.REACT_APP_API+ `VirtualCloset/`+ depid,{
      </TableBody>
      </Table>
      </TableContainer>
-
-                    <Button variant="contained" style={{color: "white", backgroundColor: blueGrey['700'], fontFamily: "nerko one", color: "white", fontWeight:"bold"}} size="small"
-                    onClick={()=>this.setState({addModalShow: true})}>
-                    Add Another Item</Button>
-                    <AddItemModal show={this.state.addModalShow}
-                    onHide={addModalClose}/>
-                
+<AddThisItem/>        
   </Grid>
   <Grid item sm={2} md={2} lg={2}></Grid>
 </Grid>

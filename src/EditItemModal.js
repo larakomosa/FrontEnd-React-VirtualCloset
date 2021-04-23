@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Modal, Button, Grid, FormGroup, FormControl, FormLabel} from '@material-ui/core'
-
+import {Modal, Button, Row, Col, Form, FormGroup} from 'react-bootstrap'
 import { isArrayLiteralExpression } from 'typescript';
 
 export class EditItemModal extends Component {
@@ -54,38 +53,40 @@ render(){
                     Update Department
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-               <Grid sm={6}>
-                        <form onSubmit = {this.handleSubmit}>
-                        <FormGroup controlId= "DepartmentId">
-                                <FormLabel>Todo Id</FormLabel>
-                                <FormControl type="text" name="id" required
+            <Modal.Body >
+                <Row>
+                    <Col sm={6}>
+                        <Form onSubmit = {this.handleSubmit}>
+                        <Form.Group controlId= "DepartmentId">
+                                <Form.Label>Todo Id</Form.Label>
+                                <Form.Control type="text" name="id" required
                                 disabled
                                 defaultValue={this.props.clothesId}
                                 placeholder = "Id"/>
-                                </FormGroup>
-                            <FormGroup controlId= "Name">
-                                <FormLabel>Name</FormLabel>
-                                <FormControl type="text" name="name" required
+                                </Form.Group>
+                            <Form.Group controlId= "Name">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" name="name" required
                                 placeholder = {this.props.clothesName}/>
-                                </FormGroup>
-                            <FormGroup controlId= "Category">
-                                <FormLabel>Category</FormLabel>
-                                <FormControl type="text" name="category" required
+                                </Form.Group>
+                            <Form.Group controlId= "Category">
+                                <Form.Label>Category</Form.Label>
+                                <Form.Control type="text" name="category" required
                                 placeholder = {this.props.clothesCategory}/>
-                                </FormGroup>
-                            <FormGroup controlId= "Favorite">
-                                <FormLabel>Favorite</FormLabel>
-                                <FormControl type="text" name="favorite" required
+                                </Form.Group>
+                            <Form.Group controlId= "Favorite">
+                                <Form.Label>Favorite</Form.Label>
+                                <Form.Control type="text" name="favorite" required
                                 placeholder = {this.props.clothesFavorite?.toString()}/>
-                                </FormGroup>
-                                <FormGroup>
+                                </Form.Group>
+                                <Form.Group>
                                     <Button variant="primary" type="submit">
                                         Update Closet Item
                                     </Button>
-                                </FormGroup>
-                    </form>
-                    </Grid>
+                                </Form.Group>
+                                </Form>
+                    </Col>
+                </Row>
          </Modal.Body>
          <Modal.Footer>
              <Button variant="danger" onClick={this.props.onHide}>Close</Button>
