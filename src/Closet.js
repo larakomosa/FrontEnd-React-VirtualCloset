@@ -82,21 +82,12 @@ fetch(process.env.REACT_APP_API+ `VirtualCloset/`+ depid,{
               <TableCell style= {{fontFamily: "nunito", color: blueGrey['700'], fontWeight:"bold"}} align="right">
                 {clothes.favorite.toString()}</TableCell>
               <TableCell>
-              <Button className= "Edit" variant="contained" color="secondary" size="small" style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
-              onClick={()=>this.setState({editModalShow:true.valueOf,
-              clothesId: clothes.id, clothesName: clothes.name, clothesCategory: clothes.category, clothesFavorite: clothes.favorite})}>
-                  Edit
-              </Button>
               &nbsp;
               <Button className= "Edit" variant="contained" color="secondary" size="small" style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
               onClick={()=>this.deleteDep(clothes.id)}>
                   Delete
               </Button>
-              <EditItemModal show ={this.state.editModalShow}
-              onHide={editModalClose}
-              clothesId= {clothesId}
-              clothesName= {clothesName}
-              clothesCategory= {clothesCategory}/>
+              <EditItemModal />
           </TableCell>
         </TableRow>
         )}
