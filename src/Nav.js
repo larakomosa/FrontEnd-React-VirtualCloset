@@ -93,11 +93,11 @@ export const Nav = (props) => {
               open={open}
               onClose={() => handleMenuClick(null)}
             >
-              <MenuItem onClick={() => handleMenuClick('/')}>
+              <MenuItem onClick={() => handleMenuClick('/search')}>
               Search
               </MenuItem>
-              <MenuItem onClick={() => handleMenuClick('/VirtualCloset')}>
-                <p> All Items</p>
+              <MenuItem onClick={() => handleMenuClick('/')}>
+                <p> Home</p>
               </MenuItem>
             </Menu>
           </Toolbar>

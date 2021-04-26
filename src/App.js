@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import {Header} from './Header'
-import {Home} from './Home';
+import {Search} from './Search';
 import {Closet} from './Closet'
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -13,7 +13,7 @@ function App() {
     <div className="App">
      <Header/>
      <Switch>
-       <Route path= '/VirtualCloset' component={Home} exact/>
+       <Route path= '/Search' component={Search} exact/>
        <Route path= '/' component={Closet}/>
      </Switch>
     </div>

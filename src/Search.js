@@ -9,12 +9,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
 import {Grid, Button} from '@material-ui/core';
-import './Home.css';
+import './Search.css';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 
 
 
-export class Home extends Component{
+export class Search extends Component{
     state = {
         name: "",
         array: [], 
@@ -128,6 +128,6 @@ export class Home extends Component{
                  </>            
                 )}}
             
-export default Home;   
+export default Search;   
 
    
