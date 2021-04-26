@@ -3,7 +3,7 @@ import Modal from '@material-ui/core/Modal';
 import React from 'react';
 import { Button } from '@material-ui/core';
 import blueGrey from '@material-ui/core/colors/blueGrey';
-import AddItemForm from './AddItemForm';
+import EditItemForm from './EditItemForm';
 
 function getModalStyle() {
   const top = 50;
@@ -15,6 +15,8 @@ function getModalStyle() {
     transform: `translate(-${top}%, -${left}%)`,
   };
 }
+
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const EditItemModal = (props) => {
+
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -47,7 +50,7 @@ export const EditItemModal = (props) => {
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">
         {' '}
-        {/* <AddItemForm callback={handleClose}/> */}
+        <EditItemForm callback={handleClose}/>
       </h2>
     </div>
   );
@@ -55,9 +58,8 @@ export const EditItemModal = (props) => {
   return (
     <div>
       <Button
-        fullWidth
         variant="outlined"
-        size="large"
+        size="small"
         align="center"
         type="button"
         onClick={handleOpen}

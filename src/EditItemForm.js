@@ -1,24 +1,29 @@
-import React, {Component} from 'react';
-import {Modal, Button, Row, Col, Form, FormGroup} from 'react-bootstrap'
-import { isArrayLiteralExpression } from 'typescript';
+import React, { Component } from 'react';
+import TextField from '@material-ui/core/TextField';
 
-export class EditItemModal extends Component {
+import { Button, Typography } from '@material-ui/core';
 
-    constructor(props){
-    super(props);
-    this.handleSubmit=this.handleSubmit.bind(this);
-    this.state={isComplete: false}
-}
+export class EditItemForm extends Component {
+    state = {
+        newItem: {
+        id: '',
+          name: '',
+          category: '',
+          favorite: '',
+        },
+      };
 
-toggle=()=> {
-    if (this.props.depisComplete=== true){
-        return (
-            <p>Yes</p>
-        );
-    } else {
-        return (<p>No</p>)
-    }
-}
+      handleChange = (propertyName) => (event) => {
+        //captures values for inputted information
+        this.setState({
+          newItem: {
+            ...this.state.newItem,
+            [propertyName]: event.target.value,
+          },
+     
+        });
+        console.log(this.state.newItem)
+      };
 
 handleSubmit(event){
     fetch(process.env.REACT_APP_API + 'VirtualCloset', {
@@ -39,20 +44,27 @@ handleSubmit(event){
     (error)=>{
         alert(error)
     })
+    this.props.callback();
 }
+
+handleCancel = (event) => {
+    //captures values for inputted information
+    console.log('meow, meow');
+    this.props.callback();
+  };
 
 render() {
     return (
       <form>
-        Add New Item
+        Edit Item
         <div className="formField">
           <TextField
             fullWidth
             size="small"
             id="outlined-helperText"
-            label="Name"
+            label="testing"
             value={this.state.newItem.name}
-            placeholder="Add Reward Here"
+            placeholder= "testing"
             onChange={this.handleChange('name')}
             variant="outlined"
           />{' '}
@@ -114,4 +126,4 @@ render() {
   }
 }
 
-}
+export default EditItemForm
