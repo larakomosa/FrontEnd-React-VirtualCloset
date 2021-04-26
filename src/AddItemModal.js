@@ -4,6 +4,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import AddItemForm from './AddItemForm';
+import AddCategoryModal from './AddCategoryModal'
 
 function getModalStyle() {
   const top = 50;
@@ -48,6 +49,7 @@ export const AddThisItem = (props) => {
       <h2 id="simple-modal-title">
         {' '}
         <AddItemForm callback={handleClose}/>
+        <AddCategoryModal/>
       </h2>
     </div>
   );

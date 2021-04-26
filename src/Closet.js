@@ -82,8 +82,8 @@ fetch(process.env.REACT_APP_API+ `VirtualCloset/`+ depid,{
               <TableCell style= {{fontFamily: "nunito", color: blueGrey['700'], fontWeight:"bold"}} align="right">
                 {clothes.favorite.toString()}</TableCell>
               <TableCell>
-              &nbsp;
-              <Button className= "Edit" variant="contained" color="secondary" size="small" style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
+
+              <Button className= "Edit" variant="contained" color="secondary" size="small" style={{marginBottom: 10, fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
               onClick={()=>this.deleteDep(clothes.id)}>
                   Delete
               </Button>

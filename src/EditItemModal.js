@@ -58,19 +58,13 @@ export const EditItemModal = (props) => {
   return (
     <div>
       <Button
-        variant="outlined"
+        variant="contained"
+        color="secondary"
         size="small"
         align="center"
         type="button"
         onClick={handleOpen}
-        style={{
-          backgroundColor: blueGrey['700'],
-          fontFamily: 'nunito',
-          color: 'white',
-          marginBottom: '5px',
-          marginTop: '15px',
-          marginLeft: '0px',
-        }}
+        style={{fontFamily: "nerko one", color: "white", fontWeight:"bold"}}
       >
         Edit
       </Button>{' '}
