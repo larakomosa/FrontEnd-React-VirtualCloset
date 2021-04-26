@@ -3,15 +3,30 @@ import TextField from '@material-ui/core/TextField';
 
 import { Button, Typography } from '@material-ui/core';
 
-
+let categories = null
 class AddItemForm extends Component {
-    state = {
+  
+  state = {
         newItem: {
           name: '',
           category: '',
           favorite: '',
         },
-      };
+     
+      }
+
+
+      refreshList(){
+        fetch(process.env.REACT_APP_API + 'category')
+        .then(response=>response.json())
+            .then(data=>{
+              categories = data
+          })
+        }
+
+    componentDidMount(){
+        this.refreshList();
+    }
 
       handleChange = (propertyName) => (event) => {
         //captures values for inputted information
@@ -26,14 +41,12 @@ class AddItemForm extends Component {
       };
 
       handleCancel = (event) => {
-        //captures values for inputted information
         console.log('meow, meow');
         this.props.callback();
       };
 
       handleSubmit = (event) => {
-        console.log('submit called')
-        console.log(this.state.newItem)
+
         fetch(process.env.REACT_APP_API + 'VirtualCloset', {
             method: 'POST',
             headers:{
@@ -41,9 +54,9 @@ class AddItemForm extends Component {
                 'Content-Type': 'application/json'
             },
             body:JSON.stringify({
-name: this.state.newItem.name,
-category: this.state.newItem.category,
-favorite: this.state.newItem.favorite,
+            name: this.state.newItem.name,
+            category: this.state.newItem.category,
+            favorite: this.state.newItem.favorite,
             })
         })
         .then(res=>res.json())
@@ -57,6 +70,8 @@ favorite: this.state.newItem.favorite,
     }
 
   render() {
+    console.log(categories)
+
     return (
       <form>
         Add New Item
@@ -76,13 +91,25 @@ favorite: this.state.newItem.favorite,
           <TextField
             fullWidth
             size="small"
-            id="outlined-helperText"
-            label="Category"
-            placeholder="Enter Coin Price"
-            variant="outlined"
+            style={{ color: '#698399', fontFamily: 'nunito' }}
+            id="outlined-select-currency-native"
             value={this.state.newItem.category}
+            select
             onChange={this.handleChange('category')}
-          />
+            placeholder="Select Category"
+            variant="outlined"
+            SelectProps={{
+              native: true,
+            }}
+          >
+            {/* <option value="">Select a Chore</option>
+            {categories.map((option) => (
+              <option key={option.value} value={option.id}>
+                {option.name}
+              </option>
+            ))} */}
+        
+          </TextField>
         </div>
         <div className="formField">
           <TextField
