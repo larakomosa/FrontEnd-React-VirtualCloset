@@ -99,6 +99,9 @@ export const Nav = (props) => {
               <MenuItem onClick={() => handleMenuClick('/')}>
                 <p> Home</p>
               </MenuItem>
+              <MenuItem onClick={() => handleMenuClick('/categories')}>
+                <p> Categories</p>
+              </MenuItem>
             </Menu>
           </Toolbar>
         </AppBar>

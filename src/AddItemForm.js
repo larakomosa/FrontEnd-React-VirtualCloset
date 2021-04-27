@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 import { Button, Typography } from '@material-ui/core';
 
-let categories = null
+let categories = []
 class AddItemForm extends Component {
   
   state = {
@@ -70,7 +70,7 @@ class AddItemForm extends Component {
     }
 
   render() {
-    console.log(categories)
+    console.log('categories', categories)
 
     return (
       <form>
@@ -102,12 +102,12 @@ class AddItemForm extends Component {
               native: true,
             }}
           >
-            {/* <option value="">Select a Chore</option>
+            <option value="">Select a Chore</option>
             {categories.map((option) => (
-              <option key={option.value} value={option.id}>
+              <option key={option.name} value={option.id}>
                 {option.name}
               </option>
-            ))} */}
+            ))}
         
           </TextField>
         </div>
